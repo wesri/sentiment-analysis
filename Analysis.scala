@@ -94,8 +94,10 @@ object Analysis {
     val conf = new SparkConf().setAppName("Tweet Analysis")
 
     val sc = new SparkContext(conf)
+    
+    val numberOfPartitions = 8
 
-    val tweetFile = sc.textFile(newTweetFile, 8).cache()
+    val tweetFile = sc.textFile(newTweetFile, numberOfPartitions).cache()
 
     val allowedTabs = 2
 
