@@ -32,8 +32,6 @@ object Analysis {
 
   val tweetFolder = "analysisFiles"
 
-  val allowedTabs = 2
-
   def main(args: Array[String]) {
 
     def merge(source: String, destination: String): Unit = { // merge two files
@@ -93,11 +91,13 @@ object Analysis {
 
     hdfs.rename(new Path(tmpTweetFolder), new Path(tweetFolder))
 
-    val conf = new SparkConf().setAppName("Tweet Analysis").setMaster("local[8]")
+    val conf = new SparkConf().setAppName("Tweet Analysis")
 
     val sc = new SparkContext(conf)
 
     val tweetFile = sc.textFile(newTweetFile, 8).cache()
+
+    val allowedTabs = 2
 
     val tweetData: RDD[(String, String, String, Int)] = tweetFile.mapPartitions(lines => {
 
