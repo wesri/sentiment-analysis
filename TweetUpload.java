@@ -21,7 +21,7 @@ import com.microsoft.azure.storage.blob.*;
 import org.apache.hadoop.fs.*;
 import org.apache.hadoop.conf.*;
  
-public class BlobSample {
+public class TweetUpload {
         public static final String storageConnectionString = "DefaultEndpointsProtocol=http;"
                         + "AccountName=account_name_here;"
                         + "AccountKey=account_key_here";
