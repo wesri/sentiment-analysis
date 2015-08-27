@@ -26,8 +26,8 @@ import scala.collection.mutable.Buffer
 
 object Analysis {
 
-  val positiveFile = "wordFiles/positive.txt"
-  val negativeFile = "wordFiles/negative.txt"
+  val positiveFile = "wordFiles/positive-words.txt"
+  val negativeFile = "wordFiles/negative-words.txt"
   val outputFolder = "output"
 
   val tweetFolder = "analysisFiles"
