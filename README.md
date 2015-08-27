@@ -4,7 +4,7 @@ Sentiment Analysis of Tweets Using Microsoft Azure
 Setting Up the Pipeline on Cloudera
 -----------------------------------
 
-First follow [Cloudera's tutorial](https://github.com/cloudera/cdh-twitter-example) with few exceptions:
+First follow [Cloudera's tutorial](https://github.com/cloudera/cdh-twitter-example) with a few exceptions:
 
 1. Build `hive-serdes` and `flume-sources` yourself.
 
@@ -65,10 +65,10 @@ Setting up Spark on Azure HDInsight
 
 4. Use RDP to connect to the cluster and place the directory `SentimentAnalysis` under `C:\`.
 
-Run the app on Azure HDInsight
+Run the application on Azure HDInsight
 ------------------------------
 
-When running the app, it reads all the tweet files in folder `analysisFiles` and  combines the files to `tweetFile.tsv`.
+When running the application, it reads all the tweet files in folder `analysisFiles` and  combines the files to `tweetFile.tsv`.
 
 To run it, open a Hadoop command line and execute following commands:
 <pre>
