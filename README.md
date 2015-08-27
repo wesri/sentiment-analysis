@@ -53,7 +53,7 @@ First follow [Cloudera's tutorial](https://github.com/cloudera/cdh-twitter-examp
   ```
   After modifying build the file.
 
-4. Replace the `oozie-workflows` folder with this project's `oozie-workflows` folder and move your built `TweetUpload.jar` to this folder.
+4. Replace the `oozie-workflows` folder with this project's `oozie-workflows` folder and move your built `TweetUpload.jar` to `oozie-workflows/lib/`.
 
 Setting up Spark on Azure HDInsight
 -----------------------------------
