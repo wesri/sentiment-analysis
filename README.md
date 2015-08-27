@@ -10,48 +10,48 @@ First follow [Cloudera's tutorial](https://github.com/cloudera/cdh-twitter-examp
 
 2. Create the tweets table using following commands:
 
-<pre>
-ADD JAR /usr/lib/hadoop/hive-serdes-1.0-SNAPSHOT.jar;
+  <pre>
+  ADD JAR /usr/lib/hadoop/hive-serdes-1.0-SNAPSHOT.jar;
 
-CREATE EXTERNAL TABLE tweets (
-  id BIGINT,
-  created_at STRING,
-  lang STRING,
-  source STRING,
-  favorited BOOLEAN,
-  retweeted_status STRUCT<
-    text:STRING,
-    user:STRUCT<screen_name:STRING,name:STRING>,
-    retweet_count:INT>,
-  entities STRUCT<
-    urls:ARRAY<STRUCT<expanded_url:STRING>>,
-    user_mentions:ARRAY<STRUCT<screen_name:STRING,name:STRING>>,
-    hashtags:ARRAY<STRUCT<text:STRING>>>,
-  text STRING,
-  user STRUCT<
-    screen_name:STRING,
-    name:STRING,
-    friends_count:INT,
-    followers_count:INT,
-    statuses_count:INT,
-    verified:BOOLEAN,
-    utc_offset:INT,
-    time_zone:STRING>,
-  in_reply_to_screen_name STRING
-)
-PARTITIONED BY (datehour INT)
-ROW FORMAT SERDE 'com.cloudera.hive.serde.JSONSerDe'
-LOCATION '/user/flume/tweets';
-</pre>
+  CREATE EXTERNAL TABLE tweets (
+    id BIGINT,
+    created_at STRING,
+    lang STRING,
+    source STRING,
+    favorited BOOLEAN,
+    retweeted_status STRUCT<
+      text:STRING,
+      user:STRUCT<screen_name:STRING,name:STRING>,
+      retweet_count:INT>,
+    entities STRUCT<
+      urls:ARRAY<STRUCT<expanded_url:STRING>>,
+      user_mentions:ARRAY<STRUCT<screen_name:STRING,name:STRING>>,
+      hashtags:ARRAY<STRUCT<text:STRING>>>,
+    text STRING,
+    user STRUCT<
+      screen_name:STRING,
+      name:STRING,
+      friends_count:INT,
+      followers_count:INT,
+      statuses_count:INT,
+      verified:BOOLEAN,
+      utc_offset:INT,
+      time_zone:STRING>,
+    in_reply_to_screen_name STRING
+  )
+  PARTITIONED BY (datehour INT)
+  ROW FORMAT SERDE 'com.cloudera.hive.serde.JSONSerDe'
+  LOCATION '/user/flume/tweets';
+  </pre>
 
 3. Modify this project's `TweetUpload.java` file by replacing following strings:
-```
-account_name_here --> Your Azure Blob storage account name
-account_key_here --> Your key for Azure Blob storage
-container_name_here --> Container name
-rdp_username_here --> Your RDP username
-```
-After modifying build the file.
+  ```
+  account_name_here --> Your Azure Blob storage account name
+  account_key_here --> Your key for Azure Blob storage
+  container_name_here --> Container name
+  rdp_username_here --> Your RDP username
+  ```
+  After modifying build the file.
 
 4. Replace the `oozie-workflows` folder with this project's `oozie-workflows` folder and move your built `TweetUpload.jar` to this folder.
 
