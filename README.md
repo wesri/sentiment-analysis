@@ -72,11 +72,16 @@ When running the application, it reads all the tweet files in folder `analysisFi
 
 To run it, open a Hadoop command line and execute following commands:
 <pre>
-dir C:/SentimentAnalysis
+cd C:\SentimentAnalysis
 C:\apps\dist\spark-1.3.1.2.2.7.1-0004\bin\spark-submit --class "Analysis" --master spark://headnodehost:7077 --executor-memory 4G --total-executor-cores 40 JAR_NAME_HERE.jar
 </pre>
 
 NOTE: You may want to change the number of cores and memory. Also change the Spark version number to correspond to version that you are using.
 
 Output file is a .tsv file and it contains the numbers of positive and negative tweets for each hour and the most used positive and negative hashtags.
+
+The format is: `time negative_tweets positive_tweets negative_hashtags positive_hashtags`
+
+Example: `2015-08-15 23  2034  2510  #bad  #happy #wow`
+
 
